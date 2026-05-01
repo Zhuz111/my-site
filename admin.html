@@ -32,6 +32,7 @@ button {
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    color: white;
 }
 
 .container {
@@ -96,8 +97,16 @@ th {
 </div>
 
 <script>
-let requests = JSON.parse(localStorage.getItem("requests")) || [];
+// 🔥 безопасная загрузка данных
+let requests = [];
 
+try {
+    requests = JSON.parse(localStorage.getItem("requests")) || [];
+} catch (e) {
+    requests = [];
+}
+
+// 📌 отображение таблицы
 function renderTable() {
     const table = document.getElementById("tableBody");
     table.innerHTML = "";
@@ -105,24 +114,26 @@ function renderTable() {
     requests.forEach((r, index) => {
         table.innerHTML += `
         <tr>
-            <td>${r.name}</td>
-            <td>${r.phone}</td>
-            <td>${r.dance}</td>
-            <td>${r.date}</td>
-            <td>${r.comment}</td>
-            <td>${r.time}</td>
+            <td>${r.name || ""}</td>
+            <td>${r.phone || ""}</td>
+            <td>${r.dance || ""}</td>
+            <td>${r.date || ""}</td>
+            <td>${r.comment || ""}</td>
+            <td>${r.time || ""}</td>
             <td><button class="delete-btn" onclick="deleteItem(${index})">X</button></td>
         </tr>
         `;
     });
 }
 
+// 🗑 удаление заявки
 function deleteItem(index) {
     requests.splice(index, 1);
     localStorage.setItem("requests", JSON.stringify(requests));
     renderTable();
 }
 
+// 📤 экспорт CSV (исправлен для Excel)
 function exportCSV() {
     if (requests.length === 0) {
         alert("Нет данных");
@@ -132,10 +143,10 @@ function exportCSV() {
     let csv = "Имя,Телефон,Направление,Дата,Комментарий,Время\n";
 
     requests.forEach(r => {
-        csv += `${r.name},${r.phone},${r.dance},${r.date},${r.comment},${r.time}\n`;
+        csv += `"${r.name || ""}","${r.phone || ""}","${r.dance || ""}","${r.date || ""}","${r.comment || ""}","${r.time || ""}"\n`;
     });
 
-    const blob = new Blob([csv], { type: "text/csv" });
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
 
     const a = document.createElement("a");
