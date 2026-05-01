@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f0f0f;
+    color: white;
+}
+
+        /* NAV */
+ header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: #111;
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #950059;
+ }
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 12px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #950059;
+}
+
+.btn {
+    background: #950059;
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: black !important;
+}
+
+        /* HERO */
+.hero {
+    text-align: center;
+    padding: 120px 20px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url("img/flagwayd.svg");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin: 0;
+    color: #950059;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: 20px auto;
+    color: #ddd;
+}
+
+        /* SECTIONS */
+.section {
+    padding: 60px;
+    text-align: center;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    margin-top: 40px;
+    color: #888;
+
+}
+
+.burger {
+    display: none;
+    font-size: 30px;
+    color: #950059;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .burger {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+}
+
+.why-section {
+    position: relative;
+    background-image: url("../img/flagwayd.svg"); /* твоя картинка */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 80px 20px;
+    color: white;
+    overflow: hidden;
+}
+
+/* затемнение фона */
+.why-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+/* чтобы текст был поверх */
+.why-section h2,
+.why-section .cards,
+.why-section p,
+.why-section a {
+    position: relative;
+    z-index: 2;
+}

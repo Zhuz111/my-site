@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запись на занятия</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #950059;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background: #111;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #333;
+        }
+
+        footer {
+            text-align: center;
+            background: #111;
+            color: white;
+            padding: 15px;
+            margin-top: 40px;
+        }
+
+        .note {
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* сообщение */
+        .success {
+            display: none;
+            text-align: center;
+            margin-top: 15px;
+            color: green;
+            font-weight: bold;
+        }
+
+        /* МЕНЮ */
+.nav-header {
+    background: #950059;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+}
+
+/* УБИРАЕМ ВСЁ ЛИШНЕЕ */
+.nav-header {
+    border: none;
+    box-shadow: none;
+}
+
+/* ССЫЛКИ */
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 12px;
+}
+
+nav a:hover {
+    color: #950059;
+}
+
+/* ЗАГОЛОВОК СТРАНИЦЫ */
+.page-title {
+    text-align: center;
+    padding: 40px 20px;
+    color: white;
+}
+    </style>
+</head>
+
+<body>
+
+<header class="nav-header">
+    <div class="logo">WAYD</div>
+
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="dancetypes.html">Направления</a>
+        <a href="coach.html">Тренеры</a>
+        <a href="schedule.html">Расписание</a>
+        <a href="registration.html">Запись</a>
+        <a href="contacts.html">Контакты</a>
+    </nav>
+</header>
+
+<section class="page-title">
+    <h1>Расписание занятий</h1>
+    <p>Выбери удобное время для тренировок</p>
+</section>
+
+<div class="container">
+
+    <h2>Форма записи</h2>
+
+    <form id="form">
+        <label>Имя</label>
+        <input type="text" required>
+
+        <label>Телефон</label>
+        <input type="tel" required>
+
+        <label>Направление</label>
+        <select>
+            <option>Хип-хоп</option>
+            <option>K-pop</option>
+            <option>Джаз-фанк</option>
+            <option>All styles</option>
+        </select>
+
+        <label>Дата</label>
+        <input type="date">
+
+        <label>Комментарий</label>
+        <textarea rows="4"></textarea>
+
+        <button type="submit">Отправить заявку</button>
+    </form>
+
+    <p class="success" id="successMsg">✔ Заявка успешно отправлена!</p>
+
+    <p class="note">* После отправки с вами свяжется администратор</p>
+
+</div>
+
+<footer>
+    © 2026 WAYD Dance Studio
+</footer>
+
+<!-- ✅ JS -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const form = document.getElementById("form");
+    const msg = document.getElementById("successMsg");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        // получаем данные
+        const name = form.querySelectorAll("input")[0].value;
+        const phone = form.querySelectorAll("input")[1].value;
+        const dance = form.querySelector("select").value;
+        const date = form.querySelectorAll("input")[2].value;
+        const comment = form.querySelector("textarea").value;
+
+        // создаём объект заявки
+        const newRequest = {
+            name,
+            phone,
+            dance,
+            date,
+            comment,
+            time: new Date().toLocaleString()
+        };
+
+        // достаём старые заявки
+        let requests = JSON.parse(localStorage.getItem("requests")) || [];
+
+        // добавляем новую
+        requests.push(newRequest);
+
+        // сохраняем обратно
+        localStorage.setItem("requests", JSON.stringify(requests));
+
+        // очистка формы
+        form.reset();
+
+        // сообщение
+        msg.style.display = "block";
+
+        setTimeout(() => {
+            msg.style.display = "none";
+        }, 3000);
+
+        console.log("Сохранённые заявки:", requests);
+    });
+
+});
+</script>
+
+</body>
+</html>

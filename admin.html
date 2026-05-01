@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Админ-панель WAYD</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #0f0f0f;
+    color: white;
+}
+
+header {
+    padding: 20px;
+    background: #111;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    color: #950059;
+}
+
+button {
+    background: #950059;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.container {
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #333;
+    text-align: center;
+    font-size: 14px;
+}
+
+th {
+    background: #222;
+    color: #950059;
+}
+
+.delete-btn {
+    background: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Админ-панель WAYD</h1>
+    <button onclick="exportCSV()">Экспорт CSV</button>
+</header>
+
+<div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Телефон</th>
+                <th>Направление</th>
+                <th>Дата</th>
+                <th>Комментарий</th>
+                <th>Время</th>
+                <th>Удалить</th>
+            </tr>
+        </thead>
+
+        <tbody id="tableBody"></tbody>
+    </table>
+</div>
+
+<script>
+let requests = JSON.parse(localStorage.getItem("requests")) || [];
+
+function renderTable() {
+    const table = document.getElementById("tableBody");
+    table.innerHTML = "";
+
+    requests.forEach((r, index) => {
+        table.innerHTML += `
+        <tr>
+            <td>${r.name}</td>
+            <td>${r.phone}</td>
+            <td>${r.dance}</td>
+            <td>${r.date}</td>
+            <td>${r.comment}</td>
+            <td>${r.time}</td>
+            <td><button class="delete-btn" onclick="deleteItem(${index})">X</button></td>
+        </tr>
+        `;
+    });
+}
+
+function deleteItem(index) {
+    requests.splice(index, 1);
+    localStorage.setItem("requests", JSON.stringify(requests));
+    renderTable();
+}
+
+function exportCSV() {
+    if (requests.length === 0) {
+        alert("Нет данных");
+        return;
+    }
+
+    let csv = "Имя,Телефон,Направление,Дата,Комментарий,Время\n";
+
+    requests.forEach(r => {
+        csv += `${r.name},${r.phone},${r.dance},${r.date},${r.comment},${r.time}\n`;
+    });
+
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "wayd_requests.csv";
+    a.click();
+}
+
+renderTable();
+</script>
+
+</body>
+</html>

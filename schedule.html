@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расписание занятий</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #950059;
+        }
+
+        header {
+            background: #950059; /* тот же цвет что и body */
+            color: white;
+            text-align: center;
+            padding: 25px;
+            border-bottom: none; /* убираем линию */
+            box-shadow: none; /* если вдруг есть тень */
+        }
+
+        .container {
+            padding: 30px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: #222;
+            color: white;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        tr:hover {
+            background: #f0f0f0;
+        }
+
+        .note {
+            text-align: center;
+            margin-top: 15px;
+            color: #000000;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            background: #111;
+            color: white;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            th, td {
+                font-size: 12px;
+                padding: 10px;
+            }
+        }
+
+        /* МЕНЮ */
+.nav-header {
+    background: #950059;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+}
+
+/* УБИРАЕМ ВСЁ ЛИШНЕЕ */
+.nav-header {
+    border: none;
+    box-shadow: none;
+}
+
+/* ССЫЛКИ */
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 12px;
+}
+
+nav a:hover {
+    color: #ffcc00;
+}
+
+/* ЗАГОЛОВОК СТРАНИЦЫ */
+.page-title {
+    text-align: center;
+    padding: 40px 20px;
+    color: white;
+}
+    </style>
+</head>
+
+<body>
+
+<header class="nav-header">
+    <div class="logo">WAYD</div>
+
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="dancetypes.html">Направления</a>
+        <a href="coach.html">Тренеры</a>
+        <a href="schedule.html">Расписание</a>
+        <a href="registration.html">Запись</a>
+        <a href="contacts.html">Контакты</a>
+    </nav>
+</header>
+
+<section class="page-title">
+    <h1>Расписание занятий</h1>
+    <p>Выбери удобное время для тренировок</p>
+</section>
+
+<div class="container">
+
+    <table>
+        <tr>
+            <th>День</th>
+            <th>Время</th>
+            <th>Направление</th>
+            <th>Тренер</th>
+        </tr>
+
+        <tr>
+            <td>Понедельник</td>
+            <td>18:00 - 19:30</td>
+            <td>Хип-хоп</td>
+            <td>Омиржанова Жанар</td>
+        </tr>
+
+        <tr>
+            <td>Вторник</td>
+            <td>17:00 - 18:30</td>
+            <td>K-pop</td>
+            <td>Пак Томирис</td>
+        </tr>
+
+        <tr>
+            <td>Среда</td>
+            <td>19:00 - 20:30</td>
+            <td>Джаз-фанк</td>
+            <td>Марат Ажар</td>
+        </tr>
+
+        <tr>
+            <td>Четверг</td>
+            <td>18:00 - 19:30</td>
+            <td>К-поп</td>
+            <td>Пак Томирис</td>
+        </tr>
+
+        <tr>
+            <td>Суббота</td>
+            <td>12:00 - 13:30</td>
+            <td>All styles</td>
+            <td>Маликова Ай-Гера</td>
+        </tr>
+
+    </table>
+
+    <p class="note">Расписание может меняться, уточняйте у администратора</p>
+
+</div>
+
+<footer>
+    © 2026 WAYD Dance Studio
+</footer>
+
+</body>
+</html>

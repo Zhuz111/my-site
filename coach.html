@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наши тренеры</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #950059;
+        }
+                 
+
+        header {
+            background: #2d0324;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+
+        .container {
+            color: thistle;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .card {
+            background: #000000;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            background: #1a1a1a;
+         padding: 10px;
+        }
+
+        .card h3 {
+            margin: 15px 0 5px;
+        }
+
+        .card p {
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #111;
+            color: white;
+            margin-top: 20px;
+        }
+        
+        /* МЕНЮ */
+.nav-header {
+    background: #950059;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+}
+
+/* УБИРАЕМ ВСЁ ЛИШНЕЕ */
+.nav-header {
+    border: none;
+    box-shadow: none;
+}
+
+/* ССЫЛКИ */
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 12px;
+}
+
+nav a:hover {
+    color: #ffcc00;
+}
+
+/* ЗАГОЛОВОК СТРАНИЦЫ */
+.page-title {
+    text-align: center;
+    padding: 40px 20px;
+    color: white;
+}
+    </style>
+</head>
+
+<body>
+
+<header class="nav-header">
+    <div class="logo">WAYD</div>
+
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="dancetypes.html">Направления</a>
+        <a href="coach.html">Тренеры</a>
+        <a href="schedule.html">Расписание</a>
+        <a href="registration.html">Запись</a>
+        <a href="contacts.html">Контакты</a>
+    </nav>
+</header>
+
+<header>
+    <h1>Наши тренеры</h1>
+    <p>Профессиональная команда наставников</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <img src="img/Gera.PNG" alt="Тренер 1">
+        <h3>Маликова Ай-Гера</h3>
+        <p>Хореограф All-styles</p>
+    </div>
+
+    <div class="card">
+        <img src="img/Zhanar.PNG" alt="Тренер 2">
+        <h3>Өміржанова Жанар</h3>
+        <p>Хореограф Хип-хоп</p>
+    </div>
+
+    <div class="card">
+        <img src="img/Azhar.PNG" alt="Тренер 3">
+        <h3>Марат Ажар</h3>
+        <p>Хореограф Джаз-фанк</p>
+    </div>
+
+    <div class="card">
+        <img src="img/Toma.PNG" alt="Тренер 4">
+        <h3>Пак Томирис</h3>
+        <p>Хореограф К-поп</p>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 WAYD Dance Studio
+</footer>
+
+</body>
+</html>

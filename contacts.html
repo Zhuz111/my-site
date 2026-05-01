@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #950059;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .info {
+            margin: 8px 0;
+            color: #555;
+        }
+
+        .map {
+            width: 100%;
+            height: 250px;
+            border: 0;
+            border-radius: 10px;
+        }
+
+        footer {
+            text-align: center;
+            background: #111;
+            color: white;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        .highlight {
+            color: #111;
+            font-weight: bold;
+        }
+
+        /* МЕНЮ */
+.nav-header {
+    background: #950059;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+}
+
+/* УБИРАЕМ ВСЁ ЛИШНЕЕ */
+.nav-header {
+    border: none;
+    box-shadow: none;
+}
+
+/* ССЫЛКИ */
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 12px;
+}
+
+nav a:hover {
+    color: #ffcc00;
+}
+
+/* ЗАГОЛОВОК СТРАНИЦЫ */
+.page-title {
+    text-align: center;
+    padding: 40px 20px;
+    color: white;
+}
+    </style>
+</head>
+
+<body>
+
+<header class="nav-header">
+    <div class="logo">WAYD</div>
+
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="dancetypes.html">Направления</a>
+        <a href="coach.html">Тренеры</a>
+        <a href="schedule.html">Расписание</a>
+        <a href="registration.html">Запись</a>
+        <a href="contacts.html">Контакты</a>
+    </nav>
+</header>
+
+<section class="page-title">
+    <h1>Расписание занятий</h1>
+    <p>Выбери удобное время для тренировок</p>
+</section>
+
+<div class="container">
+
+    <div class="card">
+        <h3>Адрес</h3>
+        <p class="info">г. Алматы, Казахстан</p>
+        <p class="info">ул. Абая 150, Танцевальная студия</p>
+        <p class="info highlight">Рядом с метро / остановкой</p>
+    </div>
+
+    <div class="card">
+        <h3>Связь</h3>
+        <p class="info">Телефон: +7 (776) 293 24 01</p>
+        <p class="info">
+        <a href="https://wa.me/77762932401" target="_blank">
+            Написать в WhatsApp
+        </a>
+        </p>
+
+        <p class="info">Email: wayd@mail.com</p>
+    </div>
+
+    <div class="card">
+        <h3>График работы</h3>
+        <p class="info">Пн - Пт: 10:00 - 21:00</p>
+        <p class="info">Сб: 11:00 - 19:00</p>
+        <p class="info">Вс: выходной</p>
+    </div>
+
+    <div class="card">
+        <h3>Мы на карте</h3>
+        <iframe 
+            class="map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2900.0000000000005!2d76.9286!3d43.238949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38836e...!2sAlmaty!5e0!3m2!1sru!2skz!4v0000000000000"
+            allowfullscreen=""
+            loading="lazy">
+        </iframe>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 WAYD Dance Studio
+</footer>
+</body>
+</html>
